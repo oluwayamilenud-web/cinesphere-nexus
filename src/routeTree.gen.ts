@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthVerifyRouteImport } from './routes/auth.verify'
+import { Route as AuthSignupRouteImport } from './routes/auth.signup'
+import { Route as AuthProfileSetupRouteImport } from './routes/auth.profile-setup'
+import { Route as AuthLoginRouteImport } from './routes/auth.login'
+import { Route as AuthInterestsRouteImport } from './routes/auth.interests'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthVerifyRoute = AuthVerifyRouteImport.update({
+  id: '/auth/verify',
+  path: '/auth/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSignupRoute = AuthSignupRouteImport.update({
+  id: '/auth/signup',
+  path: '/auth/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthProfileSetupRoute = AuthProfileSetupRouteImport.update({
+  id: '/auth/profile-setup',
+  path: '/auth/profile-setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthInterestsRoute = AuthInterestsRouteImport.update({
+  id: '/auth/interests',
+  path: '/auth/interests',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth/interests': typeof AuthInterestsRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/profile-setup': typeof AuthProfileSetupRoute
+  '/auth/signup': typeof AuthSignupRoute
+  '/auth/verify': typeof AuthVerifyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth/interests': typeof AuthInterestsRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/profile-setup': typeof AuthProfileSetupRoute
+  '/auth/signup': typeof AuthSignupRoute
+  '/auth/verify': typeof AuthVerifyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth/interests': typeof AuthInterestsRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/profile-setup': typeof AuthProfileSetupRoute
+  '/auth/signup': typeof AuthSignupRoute
+  '/auth/verify': typeof AuthVerifyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth/interests'
+    | '/auth/login'
+    | '/auth/profile-setup'
+    | '/auth/signup'
+    | '/auth/verify'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth/interests'
+    | '/auth/login'
+    | '/auth/profile-setup'
+    | '/auth/signup'
+    | '/auth/verify'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth/interests'
+    | '/auth/login'
+    | '/auth/profile-setup'
+    | '/auth/signup'
+    | '/auth/verify'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthInterestsRoute: typeof AuthInterestsRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthProfileSetupRoute: typeof AuthProfileSetupRoute
+  AuthSignupRoute: typeof AuthSignupRoute
+  AuthVerifyRoute: typeof AuthVerifyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/verify': {
+      id: '/auth/verify'
+      path: '/auth/verify'
+      fullPath: '/auth/verify'
+      preLoaderRoute: typeof AuthVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/signup': {
+      id: '/auth/signup'
+      path: '/auth/signup'
+      fullPath: '/auth/signup'
+      preLoaderRoute: typeof AuthSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/profile-setup': {
+      id: '/auth/profile-setup'
+      path: '/auth/profile-setup'
+      fullPath: '/auth/profile-setup'
+      preLoaderRoute: typeof AuthProfileSetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/interests': {
+      id: '/auth/interests'
+      path: '/auth/interests'
+      fullPath: '/auth/interests'
+      preLoaderRoute: typeof AuthInterestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthInterestsRoute: AuthInterestsRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthProfileSetupRoute: AuthProfileSetupRoute,
+  AuthSignupRoute: AuthSignupRoute,
+  AuthVerifyRoute: AuthVerifyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
