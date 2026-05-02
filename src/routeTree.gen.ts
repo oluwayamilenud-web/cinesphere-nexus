@@ -9,16 +9,112 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SocialRouteImport } from './routes/social'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PartiesRouteImport } from './routes/parties'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as DiscoverRouteImport } from './routes/discover'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProfileSettingsRouteImport } from './routes/profile.settings'
+import { Route as ProfileMissionsRouteImport } from './routes/profile.missions'
+import { Route as ProfileLeaderboardRouteImport } from './routes/profile.leaderboard'
+import { Route as ProfileBadgesRouteImport } from './routes/profile.badges'
+import { Route as PlayerIdRouteImport } from './routes/player.$id'
+import { Route as PartiesCreateRouteImport } from './routes/parties.create'
+import { Route as PartiesIdRouteImport } from './routes/parties.$id'
+import { Route as MovieIdRouteImport } from './routes/movie.$id'
 import { Route as AuthVerifyRouteImport } from './routes/auth.verify'
 import { Route as AuthSignupRouteImport } from './routes/auth.signup'
 import { Route as AuthProfileSetupRouteImport } from './routes/auth.profile-setup'
 import { Route as AuthLoginRouteImport } from './routes/auth.login'
 import { Route as AuthInterestsRouteImport } from './routes/auth.interests'
 
+const SocialRoute = SocialRouteImport.update({
+  id: '/social',
+  path: '/social',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartiesRoute = PartiesRouteImport.update({
+  id: '/parties',
+  path: '/parties',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiscoverRoute = DiscoverRouteImport.update({
+  id: '/discover',
+  path: '/discover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileSettingsRoute = ProfileSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileMissionsRoute = ProfileMissionsRouteImport.update({
+  id: '/missions',
+  path: '/missions',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileLeaderboardRoute = ProfileLeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileBadgesRoute = ProfileBadgesRouteImport.update({
+  id: '/badges',
+  path: '/badges',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const PlayerIdRoute = PlayerIdRouteImport.update({
+  id: '/player/$id',
+  path: '/player/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartiesCreateRoute = PartiesCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => PartiesRoute,
+} as any)
+const PartiesIdRoute = PartiesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => PartiesRoute,
+} as any)
+const MovieIdRoute = MovieIdRouteImport.update({
+  id: '/movie/$id',
+  path: '/movie/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthVerifyRoute = AuthVerifyRouteImport.update({
@@ -49,72 +145,290 @@ const AuthInterestsRoute = AuthInterestsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ai': typeof AiRoute
+  '/discover': typeof DiscoverRoute
+  '/home': typeof HomeRoute
+  '/parties': typeof PartiesRouteWithChildren
+  '/profile': typeof ProfileRouteWithChildren
+  '/search': typeof SearchRoute
+  '/social': typeof SocialRoute
   '/auth/interests': typeof AuthInterestsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/profile-setup': typeof AuthProfileSetupRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/verify': typeof AuthVerifyRoute
+  '/movie/$id': typeof MovieIdRoute
+  '/parties/$id': typeof PartiesIdRoute
+  '/parties/create': typeof PartiesCreateRoute
+  '/player/$id': typeof PlayerIdRoute
+  '/profile/badges': typeof ProfileBadgesRoute
+  '/profile/leaderboard': typeof ProfileLeaderboardRoute
+  '/profile/missions': typeof ProfileMissionsRoute
+  '/profile/settings': typeof ProfileSettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ai': typeof AiRoute
+  '/discover': typeof DiscoverRoute
+  '/home': typeof HomeRoute
+  '/parties': typeof PartiesRouteWithChildren
+  '/profile': typeof ProfileRouteWithChildren
+  '/search': typeof SearchRoute
+  '/social': typeof SocialRoute
   '/auth/interests': typeof AuthInterestsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/profile-setup': typeof AuthProfileSetupRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/verify': typeof AuthVerifyRoute
+  '/movie/$id': typeof MovieIdRoute
+  '/parties/$id': typeof PartiesIdRoute
+  '/parties/create': typeof PartiesCreateRoute
+  '/player/$id': typeof PlayerIdRoute
+  '/profile/badges': typeof ProfileBadgesRoute
+  '/profile/leaderboard': typeof ProfileLeaderboardRoute
+  '/profile/missions': typeof ProfileMissionsRoute
+  '/profile/settings': typeof ProfileSettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ai': typeof AiRoute
+  '/discover': typeof DiscoverRoute
+  '/home': typeof HomeRoute
+  '/parties': typeof PartiesRouteWithChildren
+  '/profile': typeof ProfileRouteWithChildren
+  '/search': typeof SearchRoute
+  '/social': typeof SocialRoute
   '/auth/interests': typeof AuthInterestsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/profile-setup': typeof AuthProfileSetupRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/verify': typeof AuthVerifyRoute
+  '/movie/$id': typeof MovieIdRoute
+  '/parties/$id': typeof PartiesIdRoute
+  '/parties/create': typeof PartiesCreateRoute
+  '/player/$id': typeof PlayerIdRoute
+  '/profile/badges': typeof ProfileBadgesRoute
+  '/profile/leaderboard': typeof ProfileLeaderboardRoute
+  '/profile/missions': typeof ProfileMissionsRoute
+  '/profile/settings': typeof ProfileSettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
+    | '/ai'
+    | '/discover'
+    | '/home'
+    | '/parties'
+    | '/profile'
+    | '/search'
+    | '/social'
     | '/auth/interests'
     | '/auth/login'
     | '/auth/profile-setup'
     | '/auth/signup'
     | '/auth/verify'
+    | '/movie/$id'
+    | '/parties/$id'
+    | '/parties/create'
+    | '/player/$id'
+    | '/profile/badges'
+    | '/profile/leaderboard'
+    | '/profile/missions'
+    | '/profile/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
+    | '/ai'
+    | '/discover'
+    | '/home'
+    | '/parties'
+    | '/profile'
+    | '/search'
+    | '/social'
     | '/auth/interests'
     | '/auth/login'
     | '/auth/profile-setup'
     | '/auth/signup'
     | '/auth/verify'
+    | '/movie/$id'
+    | '/parties/$id'
+    | '/parties/create'
+    | '/player/$id'
+    | '/profile/badges'
+    | '/profile/leaderboard'
+    | '/profile/missions'
+    | '/profile/settings'
   id:
     | '__root__'
     | '/'
+    | '/admin'
+    | '/ai'
+    | '/discover'
+    | '/home'
+    | '/parties'
+    | '/profile'
+    | '/search'
+    | '/social'
     | '/auth/interests'
     | '/auth/login'
     | '/auth/profile-setup'
     | '/auth/signup'
     | '/auth/verify'
+    | '/movie/$id'
+    | '/parties/$id'
+    | '/parties/create'
+    | '/player/$id'
+    | '/profile/badges'
+    | '/profile/leaderboard'
+    | '/profile/missions'
+    | '/profile/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AiRoute: typeof AiRoute
+  DiscoverRoute: typeof DiscoverRoute
+  HomeRoute: typeof HomeRoute
+  PartiesRoute: typeof PartiesRouteWithChildren
+  ProfileRoute: typeof ProfileRouteWithChildren
+  SearchRoute: typeof SearchRoute
+  SocialRoute: typeof SocialRoute
   AuthInterestsRoute: typeof AuthInterestsRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthProfileSetupRoute: typeof AuthProfileSetupRoute
   AuthSignupRoute: typeof AuthSignupRoute
   AuthVerifyRoute: typeof AuthVerifyRoute
+  MovieIdRoute: typeof MovieIdRoute
+  PlayerIdRoute: typeof PlayerIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/social': {
+      id: '/social'
+      path: '/social'
+      fullPath: '/social'
+      preLoaderRoute: typeof SocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parties': {
+      id: '/parties'
+      path: '/parties'
+      fullPath: '/parties'
+      preLoaderRoute: typeof PartiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover': {
+      id: '/discover'
+      path: '/discover'
+      fullPath: '/discover'
+      preLoaderRoute: typeof DiscoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/settings': {
+      id: '/profile/settings'
+      path: '/settings'
+      fullPath: '/profile/settings'
+      preLoaderRoute: typeof ProfileSettingsRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/missions': {
+      id: '/profile/missions'
+      path: '/missions'
+      fullPath: '/profile/missions'
+      preLoaderRoute: typeof ProfileMissionsRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/leaderboard': {
+      id: '/profile/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/profile/leaderboard'
+      preLoaderRoute: typeof ProfileLeaderboardRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/badges': {
+      id: '/profile/badges'
+      path: '/badges'
+      fullPath: '/profile/badges'
+      preLoaderRoute: typeof ProfileBadgesRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/player/$id': {
+      id: '/player/$id'
+      path: '/player/$id'
+      fullPath: '/player/$id'
+      preLoaderRoute: typeof PlayerIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parties/create': {
+      id: '/parties/create'
+      path: '/create'
+      fullPath: '/parties/create'
+      preLoaderRoute: typeof PartiesCreateRouteImport
+      parentRoute: typeof PartiesRoute
+    }
+    '/parties/$id': {
+      id: '/parties/$id'
+      path: '/$id'
+      fullPath: '/parties/$id'
+      preLoaderRoute: typeof PartiesIdRouteImport
+      parentRoute: typeof PartiesRoute
+    }
+    '/movie/$id': {
+      id: '/movie/$id'
+      path: '/movie/$id'
+      fullPath: '/movie/$id'
+      preLoaderRoute: typeof MovieIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/verify': {
@@ -155,13 +469,53 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface PartiesRouteChildren {
+  PartiesIdRoute: typeof PartiesIdRoute
+  PartiesCreateRoute: typeof PartiesCreateRoute
+}
+
+const PartiesRouteChildren: PartiesRouteChildren = {
+  PartiesIdRoute: PartiesIdRoute,
+  PartiesCreateRoute: PartiesCreateRoute,
+}
+
+const PartiesRouteWithChildren =
+  PartiesRoute._addFileChildren(PartiesRouteChildren)
+
+interface ProfileRouteChildren {
+  ProfileBadgesRoute: typeof ProfileBadgesRoute
+  ProfileLeaderboardRoute: typeof ProfileLeaderboardRoute
+  ProfileMissionsRoute: typeof ProfileMissionsRoute
+  ProfileSettingsRoute: typeof ProfileSettingsRoute
+}
+
+const ProfileRouteChildren: ProfileRouteChildren = {
+  ProfileBadgesRoute: ProfileBadgesRoute,
+  ProfileLeaderboardRoute: ProfileLeaderboardRoute,
+  ProfileMissionsRoute: ProfileMissionsRoute,
+  ProfileSettingsRoute: ProfileSettingsRoute,
+}
+
+const ProfileRouteWithChildren =
+  ProfileRoute._addFileChildren(ProfileRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AiRoute: AiRoute,
+  DiscoverRoute: DiscoverRoute,
+  HomeRoute: HomeRoute,
+  PartiesRoute: PartiesRouteWithChildren,
+  ProfileRoute: ProfileRouteWithChildren,
+  SearchRoute: SearchRoute,
+  SocialRoute: SocialRoute,
   AuthInterestsRoute: AuthInterestsRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthProfileSetupRoute: AuthProfileSetupRoute,
   AuthSignupRoute: AuthSignupRoute,
   AuthVerifyRoute: AuthVerifyRoute,
+  MovieIdRoute: MovieIdRoute,
+  PlayerIdRoute: PlayerIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
