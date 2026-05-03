@@ -13,24 +13,55 @@ import { Route as SocialRouteImport } from './routes/social'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PartiesRouteImport } from './routes/parties'
+import { Route as NewReleasesRouteImport } from './routes/new-releases'
+import { Route as MessagesRouteImport } from './routes/messages'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as DiscoverRouteImport } from './routes/discover'
+import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as UserHandleRouteImport } from './routes/user.$handle'
+import { Route as StoryIdRouteImport } from './routes/story.$id'
+import { Route as SocialCreateRouteImport } from './routes/social.create'
+import { Route as ProfileWatchlistRouteImport } from './routes/profile.watchlist'
+import { Route as ProfileSubscriptionRouteImport } from './routes/profile.subscription'
+import { Route as ProfileShopRouteImport } from './routes/profile.shop'
 import { Route as ProfileSettingsRouteImport } from './routes/profile.settings'
+import { Route as ProfileSeasonPassRouteImport } from './routes/profile.season-pass'
+import { Route as ProfileNotificationsRouteImport } from './routes/profile.notifications'
 import { Route as ProfileMissionsRouteImport } from './routes/profile.missions'
+import { Route as ProfileLevelUpRouteImport } from './routes/profile.level-up'
 import { Route as ProfileLeaderboardRouteImport } from './routes/profile.leaderboard'
+import { Route as ProfileHistoryRouteImport } from './routes/profile.history'
+import { Route as ProfileHelpRouteImport } from './routes/profile.help'
+import { Route as ProfileEditRouteImport } from './routes/profile.edit'
+import { Route as ProfileDailyRouteImport } from './routes/profile.daily'
 import { Route as ProfileBadgesRouteImport } from './routes/profile.badges'
 import { Route as PlayerIdRouteImport } from './routes/player.$id'
+import { Route as PartiesScheduleRouteImport } from './routes/parties.schedule'
+import { Route as PartiesInviteRouteImport } from './routes/parties.invite'
 import { Route as PartiesCreateRouteImport } from './routes/parties.create'
 import { Route as PartiesIdRouteImport } from './routes/parties.$id'
 import { Route as MovieIdRouteImport } from './routes/movie.$id'
+import { Route as MessagesIdRouteImport } from './routes/messages.$id'
+import { Route as GenreNameRouteImport } from './routes/genre.$name'
 import { Route as AuthVerifyRouteImport } from './routes/auth.verify'
 import { Route as AuthSignupRouteImport } from './routes/auth.signup'
+import { Route as AuthResetRouteImport } from './routes/auth.reset'
 import { Route as AuthProfileSetupRouteImport } from './routes/auth.profile-setup'
 import { Route as AuthLoginRouteImport } from './routes/auth.login'
 import { Route as AuthInterestsRouteImport } from './routes/auth.interests'
+import { Route as AuthForgotRouteImport } from './routes/auth.forgot'
+import { Route as AiHistoryRouteImport } from './routes/ai.history'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminContentRouteImport } from './routes/admin.content'
+import { Route as SocialPostIdRouteImport } from './routes/social.post.$id'
+import { Route as ProfileBadgeIdRouteImport } from './routes/profile.badge.$id'
+import { Route as MovieIdTrailersRouteImport } from './routes/movie.$id.trailers'
+import { Route as MovieIdReviewsRouteImport } from './routes/movie.$id.reviews'
+import { Route as MovieIdEpisodesRouteImport } from './routes/movie.$id.episodes'
 
 const SocialRoute = SocialRouteImport.update({
   id: '/social',
@@ -52,6 +83,16 @@ const PartiesRoute = PartiesRouteImport.update({
   path: '/parties',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewReleasesRoute = NewReleasesRouteImport.update({
+  id: '/new-releases',
+  path: '/new-releases',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
@@ -60,6 +101,11 @@ const HomeRoute = HomeRouteImport.update({
 const DiscoverRoute = DiscoverRouteImport.update({
   id: '/discover',
   path: '/discover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsRoute = CollectionsRouteImport.update({
+  id: '/collections',
+  path: '/collections',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiRoute = AiRouteImport.update({
@@ -77,9 +123,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UserHandleRoute = UserHandleRouteImport.update({
+  id: '/user/$handle',
+  path: '/user/$handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoryIdRoute = StoryIdRouteImport.update({
+  id: '/story/$id',
+  path: '/story/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialCreateRoute = SocialCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => SocialRoute,
+} as any)
+const ProfileWatchlistRoute = ProfileWatchlistRouteImport.update({
+  id: '/watchlist',
+  path: '/watchlist',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileSubscriptionRoute = ProfileSubscriptionRouteImport.update({
+  id: '/subscription',
+  path: '/subscription',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileShopRoute = ProfileShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => ProfileRoute,
+} as any)
 const ProfileSettingsRoute = ProfileSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileSeasonPassRoute = ProfileSeasonPassRouteImport.update({
+  id: '/season-pass',
+  path: '/season-pass',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileNotificationsRoute = ProfileNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
   getParentRoute: () => ProfileRoute,
 } as any)
 const ProfileMissionsRoute = ProfileMissionsRouteImport.update({
@@ -87,9 +173,34 @@ const ProfileMissionsRoute = ProfileMissionsRouteImport.update({
   path: '/missions',
   getParentRoute: () => ProfileRoute,
 } as any)
+const ProfileLevelUpRoute = ProfileLevelUpRouteImport.update({
+  id: '/level-up',
+  path: '/level-up',
+  getParentRoute: () => ProfileRoute,
+} as any)
 const ProfileLeaderboardRoute = ProfileLeaderboardRouteImport.update({
   id: '/leaderboard',
   path: '/leaderboard',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileHistoryRoute = ProfileHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileHelpRoute = ProfileHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileEditRoute = ProfileEditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const ProfileDailyRoute = ProfileDailyRouteImport.update({
+  id: '/daily',
+  path: '/daily',
   getParentRoute: () => ProfileRoute,
 } as any)
 const ProfileBadgesRoute = ProfileBadgesRouteImport.update({
@@ -101,6 +212,16 @@ const PlayerIdRoute = PlayerIdRouteImport.update({
   id: '/player/$id',
   path: '/player/$id',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PartiesScheduleRoute = PartiesScheduleRouteImport.update({
+  id: '/schedule',
+  path: '/schedule',
+  getParentRoute: () => PartiesRoute,
+} as any)
+const PartiesInviteRoute = PartiesInviteRouteImport.update({
+  id: '/invite',
+  path: '/invite',
+  getParentRoute: () => PartiesRoute,
 } as any)
 const PartiesCreateRoute = PartiesCreateRouteImport.update({
   id: '/create',
@@ -117,6 +238,16 @@ const MovieIdRoute = MovieIdRouteImport.update({
   path: '/movie/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MessagesIdRoute = MessagesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => MessagesRoute,
+} as any)
+const GenreNameRoute = GenreNameRouteImport.update({
+  id: '/genre/$name',
+  path: '/genre/$name',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthVerifyRoute = AuthVerifyRouteImport.update({
   id: '/auth/verify',
   path: '/auth/verify',
@@ -125,6 +256,11 @@ const AuthVerifyRoute = AuthVerifyRouteImport.update({
 const AuthSignupRoute = AuthSignupRouteImport.update({
   id: '/auth/signup',
   path: '/auth/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthResetRoute = AuthResetRouteImport.update({
+  id: '/auth/reset',
+  path: '/auth/reset',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthProfileSetupRoute = AuthProfileSetupRouteImport.update({
@@ -142,79 +278,222 @@ const AuthInterestsRoute = AuthInterestsRouteImport.update({
   path: '/auth/interests',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthForgotRoute = AuthForgotRouteImport.update({
+  id: '/auth/forgot',
+  path: '/auth/forgot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiHistoryRoute = AiHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AiRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminContentRoute = AdminContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => AdminRoute,
+} as any)
+const SocialPostIdRoute = SocialPostIdRouteImport.update({
+  id: '/post/$id',
+  path: '/post/$id',
+  getParentRoute: () => SocialRoute,
+} as any)
+const ProfileBadgeIdRoute = ProfileBadgeIdRouteImport.update({
+  id: '/badge/$id',
+  path: '/badge/$id',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const MovieIdTrailersRoute = MovieIdTrailersRouteImport.update({
+  id: '/trailers',
+  path: '/trailers',
+  getParentRoute: () => MovieIdRoute,
+} as any)
+const MovieIdReviewsRoute = MovieIdReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => MovieIdRoute,
+} as any)
+const MovieIdEpisodesRoute = MovieIdEpisodesRouteImport.update({
+  id: '/episodes',
+  path: '/episodes',
+  getParentRoute: () => MovieIdRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/ai': typeof AiRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/ai': typeof AiRouteWithChildren
+  '/collections': typeof CollectionsRoute
   '/discover': typeof DiscoverRoute
   '/home': typeof HomeRoute
+  '/messages': typeof MessagesRouteWithChildren
+  '/new-releases': typeof NewReleasesRoute
   '/parties': typeof PartiesRouteWithChildren
   '/profile': typeof ProfileRouteWithChildren
   '/search': typeof SearchRoute
-  '/social': typeof SocialRoute
+  '/social': typeof SocialRouteWithChildren
+  '/admin/content': typeof AdminContentRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/ai/history': typeof AiHistoryRoute
+  '/auth/forgot': typeof AuthForgotRoute
   '/auth/interests': typeof AuthInterestsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/profile-setup': typeof AuthProfileSetupRoute
+  '/auth/reset': typeof AuthResetRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/verify': typeof AuthVerifyRoute
-  '/movie/$id': typeof MovieIdRoute
+  '/genre/$name': typeof GenreNameRoute
+  '/messages/$id': typeof MessagesIdRoute
+  '/movie/$id': typeof MovieIdRouteWithChildren
   '/parties/$id': typeof PartiesIdRoute
   '/parties/create': typeof PartiesCreateRoute
+  '/parties/invite': typeof PartiesInviteRoute
+  '/parties/schedule': typeof PartiesScheduleRoute
   '/player/$id': typeof PlayerIdRoute
   '/profile/badges': typeof ProfileBadgesRoute
+  '/profile/daily': typeof ProfileDailyRoute
+  '/profile/edit': typeof ProfileEditRoute
+  '/profile/help': typeof ProfileHelpRoute
+  '/profile/history': typeof ProfileHistoryRoute
   '/profile/leaderboard': typeof ProfileLeaderboardRoute
+  '/profile/level-up': typeof ProfileLevelUpRoute
   '/profile/missions': typeof ProfileMissionsRoute
+  '/profile/notifications': typeof ProfileNotificationsRoute
+  '/profile/season-pass': typeof ProfileSeasonPassRoute
   '/profile/settings': typeof ProfileSettingsRoute
+  '/profile/shop': typeof ProfileShopRoute
+  '/profile/subscription': typeof ProfileSubscriptionRoute
+  '/profile/watchlist': typeof ProfileWatchlistRoute
+  '/social/create': typeof SocialCreateRoute
+  '/story/$id': typeof StoryIdRoute
+  '/user/$handle': typeof UserHandleRoute
+  '/movie/$id/episodes': typeof MovieIdEpisodesRoute
+  '/movie/$id/reviews': typeof MovieIdReviewsRoute
+  '/movie/$id/trailers': typeof MovieIdTrailersRoute
+  '/profile/badge/$id': typeof ProfileBadgeIdRoute
+  '/social/post/$id': typeof SocialPostIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/ai': typeof AiRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/ai': typeof AiRouteWithChildren
+  '/collections': typeof CollectionsRoute
   '/discover': typeof DiscoverRoute
   '/home': typeof HomeRoute
+  '/messages': typeof MessagesRouteWithChildren
+  '/new-releases': typeof NewReleasesRoute
   '/parties': typeof PartiesRouteWithChildren
   '/profile': typeof ProfileRouteWithChildren
   '/search': typeof SearchRoute
-  '/social': typeof SocialRoute
+  '/social': typeof SocialRouteWithChildren
+  '/admin/content': typeof AdminContentRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/ai/history': typeof AiHistoryRoute
+  '/auth/forgot': typeof AuthForgotRoute
   '/auth/interests': typeof AuthInterestsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/profile-setup': typeof AuthProfileSetupRoute
+  '/auth/reset': typeof AuthResetRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/verify': typeof AuthVerifyRoute
-  '/movie/$id': typeof MovieIdRoute
+  '/genre/$name': typeof GenreNameRoute
+  '/messages/$id': typeof MessagesIdRoute
+  '/movie/$id': typeof MovieIdRouteWithChildren
   '/parties/$id': typeof PartiesIdRoute
   '/parties/create': typeof PartiesCreateRoute
+  '/parties/invite': typeof PartiesInviteRoute
+  '/parties/schedule': typeof PartiesScheduleRoute
   '/player/$id': typeof PlayerIdRoute
   '/profile/badges': typeof ProfileBadgesRoute
+  '/profile/daily': typeof ProfileDailyRoute
+  '/profile/edit': typeof ProfileEditRoute
+  '/profile/help': typeof ProfileHelpRoute
+  '/profile/history': typeof ProfileHistoryRoute
   '/profile/leaderboard': typeof ProfileLeaderboardRoute
+  '/profile/level-up': typeof ProfileLevelUpRoute
   '/profile/missions': typeof ProfileMissionsRoute
+  '/profile/notifications': typeof ProfileNotificationsRoute
+  '/profile/season-pass': typeof ProfileSeasonPassRoute
   '/profile/settings': typeof ProfileSettingsRoute
+  '/profile/shop': typeof ProfileShopRoute
+  '/profile/subscription': typeof ProfileSubscriptionRoute
+  '/profile/watchlist': typeof ProfileWatchlistRoute
+  '/social/create': typeof SocialCreateRoute
+  '/story/$id': typeof StoryIdRoute
+  '/user/$handle': typeof UserHandleRoute
+  '/movie/$id/episodes': typeof MovieIdEpisodesRoute
+  '/movie/$id/reviews': typeof MovieIdReviewsRoute
+  '/movie/$id/trailers': typeof MovieIdTrailersRoute
+  '/profile/badge/$id': typeof ProfileBadgeIdRoute
+  '/social/post/$id': typeof SocialPostIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/ai': typeof AiRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/ai': typeof AiRouteWithChildren
+  '/collections': typeof CollectionsRoute
   '/discover': typeof DiscoverRoute
   '/home': typeof HomeRoute
+  '/messages': typeof MessagesRouteWithChildren
+  '/new-releases': typeof NewReleasesRoute
   '/parties': typeof PartiesRouteWithChildren
   '/profile': typeof ProfileRouteWithChildren
   '/search': typeof SearchRoute
-  '/social': typeof SocialRoute
+  '/social': typeof SocialRouteWithChildren
+  '/admin/content': typeof AdminContentRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/ai/history': typeof AiHistoryRoute
+  '/auth/forgot': typeof AuthForgotRoute
   '/auth/interests': typeof AuthInterestsRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/profile-setup': typeof AuthProfileSetupRoute
+  '/auth/reset': typeof AuthResetRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/verify': typeof AuthVerifyRoute
-  '/movie/$id': typeof MovieIdRoute
+  '/genre/$name': typeof GenreNameRoute
+  '/messages/$id': typeof MessagesIdRoute
+  '/movie/$id': typeof MovieIdRouteWithChildren
   '/parties/$id': typeof PartiesIdRoute
   '/parties/create': typeof PartiesCreateRoute
+  '/parties/invite': typeof PartiesInviteRoute
+  '/parties/schedule': typeof PartiesScheduleRoute
   '/player/$id': typeof PlayerIdRoute
   '/profile/badges': typeof ProfileBadgesRoute
+  '/profile/daily': typeof ProfileDailyRoute
+  '/profile/edit': typeof ProfileEditRoute
+  '/profile/help': typeof ProfileHelpRoute
+  '/profile/history': typeof ProfileHistoryRoute
   '/profile/leaderboard': typeof ProfileLeaderboardRoute
+  '/profile/level-up': typeof ProfileLevelUpRoute
   '/profile/missions': typeof ProfileMissionsRoute
+  '/profile/notifications': typeof ProfileNotificationsRoute
+  '/profile/season-pass': typeof ProfileSeasonPassRoute
   '/profile/settings': typeof ProfileSettingsRoute
+  '/profile/shop': typeof ProfileShopRoute
+  '/profile/subscription': typeof ProfileSubscriptionRoute
+  '/profile/watchlist': typeof ProfileWatchlistRoute
+  '/social/create': typeof SocialCreateRoute
+  '/story/$id': typeof StoryIdRoute
+  '/user/$handle': typeof UserHandleRoute
+  '/movie/$id/episodes': typeof MovieIdEpisodesRoute
+  '/movie/$id/reviews': typeof MovieIdReviewsRoute
+  '/movie/$id/trailers': typeof MovieIdTrailersRoute
+  '/profile/badge/$id': typeof ProfileBadgeIdRoute
+  '/social/post/$id': typeof SocialPostIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -222,92 +501,193 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/ai'
+    | '/collections'
     | '/discover'
     | '/home'
+    | '/messages'
+    | '/new-releases'
     | '/parties'
     | '/profile'
     | '/search'
     | '/social'
+    | '/admin/content'
+    | '/admin/reports'
+    | '/admin/users'
+    | '/ai/history'
+    | '/auth/forgot'
     | '/auth/interests'
     | '/auth/login'
     | '/auth/profile-setup'
+    | '/auth/reset'
     | '/auth/signup'
     | '/auth/verify'
+    | '/genre/$name'
+    | '/messages/$id'
     | '/movie/$id'
     | '/parties/$id'
     | '/parties/create'
+    | '/parties/invite'
+    | '/parties/schedule'
     | '/player/$id'
     | '/profile/badges'
+    | '/profile/daily'
+    | '/profile/edit'
+    | '/profile/help'
+    | '/profile/history'
     | '/profile/leaderboard'
+    | '/profile/level-up'
     | '/profile/missions'
+    | '/profile/notifications'
+    | '/profile/season-pass'
     | '/profile/settings'
+    | '/profile/shop'
+    | '/profile/subscription'
+    | '/profile/watchlist'
+    | '/social/create'
+    | '/story/$id'
+    | '/user/$handle'
+    | '/movie/$id/episodes'
+    | '/movie/$id/reviews'
+    | '/movie/$id/trailers'
+    | '/profile/badge/$id'
+    | '/social/post/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/admin'
     | '/ai'
+    | '/collections'
     | '/discover'
     | '/home'
+    | '/messages'
+    | '/new-releases'
     | '/parties'
     | '/profile'
     | '/search'
     | '/social'
+    | '/admin/content'
+    | '/admin/reports'
+    | '/admin/users'
+    | '/ai/history'
+    | '/auth/forgot'
     | '/auth/interests'
     | '/auth/login'
     | '/auth/profile-setup'
+    | '/auth/reset'
     | '/auth/signup'
     | '/auth/verify'
+    | '/genre/$name'
+    | '/messages/$id'
     | '/movie/$id'
     | '/parties/$id'
     | '/parties/create'
+    | '/parties/invite'
+    | '/parties/schedule'
     | '/player/$id'
     | '/profile/badges'
+    | '/profile/daily'
+    | '/profile/edit'
+    | '/profile/help'
+    | '/profile/history'
     | '/profile/leaderboard'
+    | '/profile/level-up'
     | '/profile/missions'
+    | '/profile/notifications'
+    | '/profile/season-pass'
     | '/profile/settings'
+    | '/profile/shop'
+    | '/profile/subscription'
+    | '/profile/watchlist'
+    | '/social/create'
+    | '/story/$id'
+    | '/user/$handle'
+    | '/movie/$id/episodes'
+    | '/movie/$id/reviews'
+    | '/movie/$id/trailers'
+    | '/profile/badge/$id'
+    | '/social/post/$id'
   id:
     | '__root__'
     | '/'
     | '/admin'
     | '/ai'
+    | '/collections'
     | '/discover'
     | '/home'
+    | '/messages'
+    | '/new-releases'
     | '/parties'
     | '/profile'
     | '/search'
     | '/social'
+    | '/admin/content'
+    | '/admin/reports'
+    | '/admin/users'
+    | '/ai/history'
+    | '/auth/forgot'
     | '/auth/interests'
     | '/auth/login'
     | '/auth/profile-setup'
+    | '/auth/reset'
     | '/auth/signup'
     | '/auth/verify'
+    | '/genre/$name'
+    | '/messages/$id'
     | '/movie/$id'
     | '/parties/$id'
     | '/parties/create'
+    | '/parties/invite'
+    | '/parties/schedule'
     | '/player/$id'
     | '/profile/badges'
+    | '/profile/daily'
+    | '/profile/edit'
+    | '/profile/help'
+    | '/profile/history'
     | '/profile/leaderboard'
+    | '/profile/level-up'
     | '/profile/missions'
+    | '/profile/notifications'
+    | '/profile/season-pass'
     | '/profile/settings'
+    | '/profile/shop'
+    | '/profile/subscription'
+    | '/profile/watchlist'
+    | '/social/create'
+    | '/story/$id'
+    | '/user/$handle'
+    | '/movie/$id/episodes'
+    | '/movie/$id/reviews'
+    | '/movie/$id/trailers'
+    | '/profile/badge/$id'
+    | '/social/post/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
-  AiRoute: typeof AiRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  AiRoute: typeof AiRouteWithChildren
+  CollectionsRoute: typeof CollectionsRoute
   DiscoverRoute: typeof DiscoverRoute
   HomeRoute: typeof HomeRoute
+  MessagesRoute: typeof MessagesRouteWithChildren
+  NewReleasesRoute: typeof NewReleasesRoute
   PartiesRoute: typeof PartiesRouteWithChildren
   ProfileRoute: typeof ProfileRouteWithChildren
   SearchRoute: typeof SearchRoute
-  SocialRoute: typeof SocialRoute
+  SocialRoute: typeof SocialRouteWithChildren
+  AuthForgotRoute: typeof AuthForgotRoute
   AuthInterestsRoute: typeof AuthInterestsRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthProfileSetupRoute: typeof AuthProfileSetupRoute
+  AuthResetRoute: typeof AuthResetRoute
   AuthSignupRoute: typeof AuthSignupRoute
   AuthVerifyRoute: typeof AuthVerifyRoute
-  MovieIdRoute: typeof MovieIdRoute
+  GenreNameRoute: typeof GenreNameRoute
+  MovieIdRoute: typeof MovieIdRouteWithChildren
   PlayerIdRoute: typeof PlayerIdRoute
+  StoryIdRoute: typeof StoryIdRoute
+  UserHandleRoute: typeof UserHandleRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -340,6 +720,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new-releases': {
+      id: '/new-releases'
+      path: '/new-releases'
+      fullPath: '/new-releases'
+      preLoaderRoute: typeof NewReleasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
@@ -352,6 +746,13 @@ declare module '@tanstack/react-router' {
       path: '/discover'
       fullPath: '/discover'
       preLoaderRoute: typeof DiscoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections': {
+      id: '/collections'
+      path: '/collections'
+      fullPath: '/collections'
+      preLoaderRoute: typeof CollectionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai': {
@@ -375,11 +776,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/user/$handle': {
+      id: '/user/$handle'
+      path: '/user/$handle'
+      fullPath: '/user/$handle'
+      preLoaderRoute: typeof UserHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/story/$id': {
+      id: '/story/$id'
+      path: '/story/$id'
+      fullPath: '/story/$id'
+      preLoaderRoute: typeof StoryIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social/create': {
+      id: '/social/create'
+      path: '/create'
+      fullPath: '/social/create'
+      preLoaderRoute: typeof SocialCreateRouteImport
+      parentRoute: typeof SocialRoute
+    }
+    '/profile/watchlist': {
+      id: '/profile/watchlist'
+      path: '/watchlist'
+      fullPath: '/profile/watchlist'
+      preLoaderRoute: typeof ProfileWatchlistRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/subscription': {
+      id: '/profile/subscription'
+      path: '/subscription'
+      fullPath: '/profile/subscription'
+      preLoaderRoute: typeof ProfileSubscriptionRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/shop': {
+      id: '/profile/shop'
+      path: '/shop'
+      fullPath: '/profile/shop'
+      preLoaderRoute: typeof ProfileShopRouteImport
+      parentRoute: typeof ProfileRoute
+    }
     '/profile/settings': {
       id: '/profile/settings'
       path: '/settings'
       fullPath: '/profile/settings'
       preLoaderRoute: typeof ProfileSettingsRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/season-pass': {
+      id: '/profile/season-pass'
+      path: '/season-pass'
+      fullPath: '/profile/season-pass'
+      preLoaderRoute: typeof ProfileSeasonPassRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/notifications': {
+      id: '/profile/notifications'
+      path: '/notifications'
+      fullPath: '/profile/notifications'
+      preLoaderRoute: typeof ProfileNotificationsRouteImport
       parentRoute: typeof ProfileRoute
     }
     '/profile/missions': {
@@ -389,11 +846,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileMissionsRouteImport
       parentRoute: typeof ProfileRoute
     }
+    '/profile/level-up': {
+      id: '/profile/level-up'
+      path: '/level-up'
+      fullPath: '/profile/level-up'
+      preLoaderRoute: typeof ProfileLevelUpRouteImport
+      parentRoute: typeof ProfileRoute
+    }
     '/profile/leaderboard': {
       id: '/profile/leaderboard'
       path: '/leaderboard'
       fullPath: '/profile/leaderboard'
       preLoaderRoute: typeof ProfileLeaderboardRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/history': {
+      id: '/profile/history'
+      path: '/history'
+      fullPath: '/profile/history'
+      preLoaderRoute: typeof ProfileHistoryRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/help': {
+      id: '/profile/help'
+      path: '/help'
+      fullPath: '/profile/help'
+      preLoaderRoute: typeof ProfileHelpRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/edit': {
+      id: '/profile/edit'
+      path: '/edit'
+      fullPath: '/profile/edit'
+      preLoaderRoute: typeof ProfileEditRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/profile/daily': {
+      id: '/profile/daily'
+      path: '/daily'
+      fullPath: '/profile/daily'
+      preLoaderRoute: typeof ProfileDailyRouteImport
       parentRoute: typeof ProfileRoute
     }
     '/profile/badges': {
@@ -409,6 +901,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/player/$id'
       preLoaderRoute: typeof PlayerIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/parties/schedule': {
+      id: '/parties/schedule'
+      path: '/schedule'
+      fullPath: '/parties/schedule'
+      preLoaderRoute: typeof PartiesScheduleRouteImport
+      parentRoute: typeof PartiesRoute
+    }
+    '/parties/invite': {
+      id: '/parties/invite'
+      path: '/invite'
+      fullPath: '/parties/invite'
+      preLoaderRoute: typeof PartiesInviteRouteImport
+      parentRoute: typeof PartiesRoute
     }
     '/parties/create': {
       id: '/parties/create'
@@ -431,6 +937,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MovieIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/messages/$id': {
+      id: '/messages/$id'
+      path: '/$id'
+      fullPath: '/messages/$id'
+      preLoaderRoute: typeof MessagesIdRouteImport
+      parentRoute: typeof MessagesRoute
+    }
+    '/genre/$name': {
+      id: '/genre/$name'
+      path: '/genre/$name'
+      fullPath: '/genre/$name'
+      preLoaderRoute: typeof GenreNameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth/verify': {
       id: '/auth/verify'
       path: '/auth/verify'
@@ -443,6 +963,13 @@ declare module '@tanstack/react-router' {
       path: '/auth/signup'
       fullPath: '/auth/signup'
       preLoaderRoute: typeof AuthSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/reset': {
+      id: '/auth/reset'
+      path: '/auth/reset'
+      fullPath: '/auth/reset'
+      preLoaderRoute: typeof AuthResetRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/profile-setup': {
@@ -466,17 +993,127 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthInterestsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/forgot': {
+      id: '/auth/forgot'
+      path: '/auth/forgot'
+      fullPath: '/auth/forgot'
+      preLoaderRoute: typeof AuthForgotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai/history': {
+      id: '/ai/history'
+      path: '/history'
+      fullPath: '/ai/history'
+      preLoaderRoute: typeof AiHistoryRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/content': {
+      id: '/admin/content'
+      path: '/content'
+      fullPath: '/admin/content'
+      preLoaderRoute: typeof AdminContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/social/post/$id': {
+      id: '/social/post/$id'
+      path: '/post/$id'
+      fullPath: '/social/post/$id'
+      preLoaderRoute: typeof SocialPostIdRouteImport
+      parentRoute: typeof SocialRoute
+    }
+    '/profile/badge/$id': {
+      id: '/profile/badge/$id'
+      path: '/badge/$id'
+      fullPath: '/profile/badge/$id'
+      preLoaderRoute: typeof ProfileBadgeIdRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/movie/$id/trailers': {
+      id: '/movie/$id/trailers'
+      path: '/trailers'
+      fullPath: '/movie/$id/trailers'
+      preLoaderRoute: typeof MovieIdTrailersRouteImport
+      parentRoute: typeof MovieIdRoute
+    }
+    '/movie/$id/reviews': {
+      id: '/movie/$id/reviews'
+      path: '/reviews'
+      fullPath: '/movie/$id/reviews'
+      preLoaderRoute: typeof MovieIdReviewsRouteImport
+      parentRoute: typeof MovieIdRoute
+    }
+    '/movie/$id/episodes': {
+      id: '/movie/$id/episodes'
+      path: '/episodes'
+      fullPath: '/movie/$id/episodes'
+      preLoaderRoute: typeof MovieIdEpisodesRouteImport
+      parentRoute: typeof MovieIdRoute
+    }
   }
 }
+
+interface AdminRouteChildren {
+  AdminContentRoute: typeof AdminContentRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminContentRoute: AdminContentRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface AiRouteChildren {
+  AiHistoryRoute: typeof AiHistoryRoute
+}
+
+const AiRouteChildren: AiRouteChildren = {
+  AiHistoryRoute: AiHistoryRoute,
+}
+
+const AiRouteWithChildren = AiRoute._addFileChildren(AiRouteChildren)
+
+interface MessagesRouteChildren {
+  MessagesIdRoute: typeof MessagesIdRoute
+}
+
+const MessagesRouteChildren: MessagesRouteChildren = {
+  MessagesIdRoute: MessagesIdRoute,
+}
+
+const MessagesRouteWithChildren = MessagesRoute._addFileChildren(
+  MessagesRouteChildren,
+)
 
 interface PartiesRouteChildren {
   PartiesIdRoute: typeof PartiesIdRoute
   PartiesCreateRoute: typeof PartiesCreateRoute
+  PartiesInviteRoute: typeof PartiesInviteRoute
+  PartiesScheduleRoute: typeof PartiesScheduleRoute
 }
 
 const PartiesRouteChildren: PartiesRouteChildren = {
   PartiesIdRoute: PartiesIdRoute,
   PartiesCreateRoute: PartiesCreateRoute,
+  PartiesInviteRoute: PartiesInviteRoute,
+  PartiesScheduleRoute: PartiesScheduleRoute,
 }
 
 const PartiesRouteWithChildren =
@@ -484,38 +1121,96 @@ const PartiesRouteWithChildren =
 
 interface ProfileRouteChildren {
   ProfileBadgesRoute: typeof ProfileBadgesRoute
+  ProfileDailyRoute: typeof ProfileDailyRoute
+  ProfileEditRoute: typeof ProfileEditRoute
+  ProfileHelpRoute: typeof ProfileHelpRoute
+  ProfileHistoryRoute: typeof ProfileHistoryRoute
   ProfileLeaderboardRoute: typeof ProfileLeaderboardRoute
+  ProfileLevelUpRoute: typeof ProfileLevelUpRoute
   ProfileMissionsRoute: typeof ProfileMissionsRoute
+  ProfileNotificationsRoute: typeof ProfileNotificationsRoute
+  ProfileSeasonPassRoute: typeof ProfileSeasonPassRoute
   ProfileSettingsRoute: typeof ProfileSettingsRoute
+  ProfileShopRoute: typeof ProfileShopRoute
+  ProfileSubscriptionRoute: typeof ProfileSubscriptionRoute
+  ProfileWatchlistRoute: typeof ProfileWatchlistRoute
+  ProfileBadgeIdRoute: typeof ProfileBadgeIdRoute
 }
 
 const ProfileRouteChildren: ProfileRouteChildren = {
   ProfileBadgesRoute: ProfileBadgesRoute,
+  ProfileDailyRoute: ProfileDailyRoute,
+  ProfileEditRoute: ProfileEditRoute,
+  ProfileHelpRoute: ProfileHelpRoute,
+  ProfileHistoryRoute: ProfileHistoryRoute,
   ProfileLeaderboardRoute: ProfileLeaderboardRoute,
+  ProfileLevelUpRoute: ProfileLevelUpRoute,
   ProfileMissionsRoute: ProfileMissionsRoute,
+  ProfileNotificationsRoute: ProfileNotificationsRoute,
+  ProfileSeasonPassRoute: ProfileSeasonPassRoute,
   ProfileSettingsRoute: ProfileSettingsRoute,
+  ProfileShopRoute: ProfileShopRoute,
+  ProfileSubscriptionRoute: ProfileSubscriptionRoute,
+  ProfileWatchlistRoute: ProfileWatchlistRoute,
+  ProfileBadgeIdRoute: ProfileBadgeIdRoute,
 }
 
 const ProfileRouteWithChildren =
   ProfileRoute._addFileChildren(ProfileRouteChildren)
 
+interface SocialRouteChildren {
+  SocialCreateRoute: typeof SocialCreateRoute
+  SocialPostIdRoute: typeof SocialPostIdRoute
+}
+
+const SocialRouteChildren: SocialRouteChildren = {
+  SocialCreateRoute: SocialCreateRoute,
+  SocialPostIdRoute: SocialPostIdRoute,
+}
+
+const SocialRouteWithChildren =
+  SocialRoute._addFileChildren(SocialRouteChildren)
+
+interface MovieIdRouteChildren {
+  MovieIdEpisodesRoute: typeof MovieIdEpisodesRoute
+  MovieIdReviewsRoute: typeof MovieIdReviewsRoute
+  MovieIdTrailersRoute: typeof MovieIdTrailersRoute
+}
+
+const MovieIdRouteChildren: MovieIdRouteChildren = {
+  MovieIdEpisodesRoute: MovieIdEpisodesRoute,
+  MovieIdReviewsRoute: MovieIdReviewsRoute,
+  MovieIdTrailersRoute: MovieIdTrailersRoute,
+}
+
+const MovieIdRouteWithChildren =
+  MovieIdRoute._addFileChildren(MovieIdRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
-  AiRoute: AiRoute,
+  AdminRoute: AdminRouteWithChildren,
+  AiRoute: AiRouteWithChildren,
+  CollectionsRoute: CollectionsRoute,
   DiscoverRoute: DiscoverRoute,
   HomeRoute: HomeRoute,
+  MessagesRoute: MessagesRouteWithChildren,
+  NewReleasesRoute: NewReleasesRoute,
   PartiesRoute: PartiesRouteWithChildren,
   ProfileRoute: ProfileRouteWithChildren,
   SearchRoute: SearchRoute,
-  SocialRoute: SocialRoute,
+  SocialRoute: SocialRouteWithChildren,
+  AuthForgotRoute: AuthForgotRoute,
   AuthInterestsRoute: AuthInterestsRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthProfileSetupRoute: AuthProfileSetupRoute,
+  AuthResetRoute: AuthResetRoute,
   AuthSignupRoute: AuthSignupRoute,
   AuthVerifyRoute: AuthVerifyRoute,
-  MovieIdRoute: MovieIdRoute,
+  GenreNameRoute: GenreNameRoute,
+  MovieIdRoute: MovieIdRouteWithChildren,
   PlayerIdRoute: PlayerIdRoute,
+  StoryIdRoute: StoryIdRoute,
+  UserHandleRoute: UserHandleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
